@@ -1,0 +1,270 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:sting
+LIBS:sting-cache
+EELAYER 25 0
+EELAYER END
+$Descr USLetter 11000 8500
+encoding utf-8
+Sheet 4 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L DC-DC PSU1
+U 1 1 585B197C
+P 9000 2500
+F 0 "PSU1" H 9000 2500 39  0000 C CNN
+F 1 "GUN_POWER" H 9000 2700 39  0000 C CNN
+F 2 "" H 8750 2500 39  0000 C CNN
+F 3 "" H 8750 2500 39  0000 C CNN
+	1    9000 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L DC-DC PSU2
+U 1 1 585B19EC
+P 9000 3050
+F 0 "PSU2" H 9000 3050 39  0000 C CNN
+F 1 "CPU POWER  / 5VDC" H 9000 3250 39  0000 C CNN
+F 2 "" H 8750 3050 39  0000 C CNN
+F 3 "" H 8750 3050 39  0000 C CNN
+	1    9000 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 3550 10050 3550
+Wire Wire Line
+	8350 3150 8500 3150
+Wire Wire Line
+	8500 2600 8350 2600
+Wire Wire Line
+	8350 2600 8350 3550
+Connection ~ 8350 3550
+Wire Wire Line
+	8450 2950 8500 2950
+Wire Wire Line
+	8450 1900 8450 2950
+Wire Wire Line
+	8450 2400 8500 2400
+Connection ~ 8450 2400
+Connection ~ 8350 3150
+Wire Wire Line
+	9500 2600 9600 2600
+Wire Wire Line
+	9600 2600 9600 3550
+Connection ~ 9600 3550
+Wire Wire Line
+	9500 3150 9600 3150
+Connection ~ 9600 3150
+$Comp
+L IRF9540N Q1
+U 1 1 585BF6DE
+P 4900 2000
+F 0 "Q1" V 4700 2050 50  0000 L CNN
+F 1 "IRF9540N" V 4600 2050 50  0000 L CNN
+F 2 "TO-220" V 4500 2050 50  0000 L CIN
+F 3 "" H 4900 2000 50  0000 L CNN
+	1    4900 2000
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	1600 1900 4700 1900
+$Comp
+L R R14
+U 1 1 585BF997
+P 4400 2200
+F 0 "R14" V 4480 2200 50  0000 C CNN
+F 1 "1K" V 4400 2200 50  0000 C CNN
+F 2 "" V 4330 2200 50  0000 C CNN
+F 3 "" H 4400 2200 50  0000 C CNN
+	1    4400 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 1900 4400 2050
+Connection ~ 4400 1900
+Wire Wire Line
+	4850 2200 4850 3200
+Connection ~ 4850 3550
+$Comp
+L SW_PUSH SW1
+U 1 1 585BFDFE
+P 3650 2950
+F 0 "SW1" H 3800 3060 50  0000 C CNN
+F 1 "SW_PUSH" H 3650 2870 50  0000 C CNN
+F 2 "" H 3650 2950 50  0000 C CNN
+F 3 "" H 3650 2950 50  0000 C CNN
+	1    3650 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 1900 3350 2950
+Connection ~ 3350 1900
+$Comp
+L R R13
+U 1 1 585BFE73
+P 4250 2950
+F 0 "R13" V 4330 2950 50  0000 C CNN
+F 1 "1K" V 4250 2950 50  0000 C CNN
+F 2 "" V 4180 2950 50  0000 C CNN
+F 3 "" H 4250 2950 50  0000 C CNN
+	1    4250 2950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4400 2950 6550 2950
+Wire Wire Line
+	5750 3200 7350 3200
+Wire Wire Line
+	3950 2950 4100 2950
+$Comp
+L R R15
+U 1 1 585BFF37
+P 6550 2200
+F 0 "R15" V 6630 2200 50  0000 C CNN
+F 1 "1K" V 6550 2200 50  0000 C CNN
+F 2 "" V 6480 2200 50  0000 C CNN
+F 3 "" H 6550 2200 50  0000 C CNN
+	1    6550 2200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6550 2350 6550 3200
+Connection ~ 6550 2950
+Wire Wire Line
+	6550 2050 6550 1900
+Connection ~ 6550 1900
+Wire Wire Line
+	9500 2950 10100 2950
+Wire Wire Line
+	9500 2400 10050 2400
+Text HLabel 10050 2400 2    60   Output ~ 0
+V_MAIN
+Text HLabel 10100 2950 2    60   Output ~ 0
+V_CPU
+Text HLabel 10050 3550 2    60   UnSpc ~ 0
+GND
+Connection ~ 6550 3200
+Text HLabel 7350 3200 2    60   Input ~ 0
+/PWR_OFF
+$Comp
+L CONN_01X04 P4
+U 1 1 585C0D42
+P 1400 2750
+F 0 "P4" H 1400 3000 50  0000 C CNN
+F 1 "CONN_01X04" V 1500 2750 50  0000 C CNN
+F 2 "" H 1400 2750 50  0000 C CNN
+F 3 "" H 1400 2750 50  0000 C CNN
+	1    1400 2750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1600 2600 1600 1900
+Wire Wire Line
+	1600 2900 1600 3550
+Wire Wire Line
+	4400 2350 4400 2550
+$Comp
+L ZENERsmall D7
+U 1 1 585C4441
+P 4100 2150
+F 0 "D7" H 4100 2250 50  0000 C CNN
+F 1 "15V" H 4100 2050 50  0000 C CNN
+F 2 "" H 4100 2150 50  0000 C CNN
+F 3 "" H 4100 2150 50  0000 C CNN
+	1    4100 2150
+	0    1    1    0   
+$EndComp
+$Comp
+L ZENERsmall D8
+U 1 1 585C450D
+P 4100 2450
+F 0 "D8" H 4100 2550 50  0000 C CNN
+F 1 "15V" H 4100 2350 50  0000 C CNN
+F 2 "" H 4100 2450 50  0000 C CNN
+F 3 "" H 4100 2450 50  0000 C CNN
+	1    4100 2450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4100 2050 4100 1900
+Connection ~ 4100 1900
+Wire Wire Line
+	4100 2350 4100 2250
+Wire Wire Line
+	4100 2550 4850 2550
+Connection ~ 4850 2550
+Connection ~ 4400 2550
+$Comp
+L PS2502-1-A U4
+U 1 1 586D8AE0
+P 5350 3300
+F 0 "U4" H 5050 3500 50  0000 L CNN
+F 1 "PS2502-1-A" H 5100 2900 50  0000 L CNN
+F 2 "DIP-4" H 5050 3100 50  0000 L CIN
+F 3 "" H 5350 3300 50  0000 L CNN
+	1    5350 3300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 3400 5850 3400
+Wire Wire Line
+	5850 3400 5850 3550
+Connection ~ 5850 3550
+Wire Wire Line
+	4850 3200 4950 3200
+Wire Wire Line
+	4950 3400 4850 3400
+Wire Wire Line
+	4850 3400 4850 3550
+$Comp
+L D_Schottky_Small D9
+U 1 1 58A4DC51
+P 7550 1900
+F 0 "D9" H 7500 1980 50  0000 L CNN
+F 1 "Power schottky" H 7270 1820 50  0000 L CNN
+F 2 "" V 7550 1900 50  0000 C CNN
+F 3 "" V 7550 1900 50  0000 C CNN
+	1    7550 1900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7650 1900 8450 1900
+Wire Wire Line
+	5100 1900 7450 1900
+$EndSCHEMATC
