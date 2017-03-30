@@ -1,0 +1,397 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:sting
+LIBS:sting-cache
+EELAYER 25 0
+EELAYER END
+$Descr USLetter 11000 8500
+encoding utf-8
+Sheet 3 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L PS2502-1-A U1
+U 1 1 585AF3BD
+P 3800 2900
+F 0 "U1" H 3500 3100 50  0000 L CNN
+F 1 "PS2502-1-A" H 3800 3100 50  0000 L CNN
+F 2 "TRIGGER" H 3500 2700 50  0000 L CIN
+F 3 "" H 3800 2900 50  0000 L CNN
+	1    3800 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_02X20 P3
+U 1 1 585AF3EC
+P 7150 3900
+F 0 "P3" H 7150 4950 50  0000 C CNN
+F 1 "CONN_02X20" V 7150 3900 50  0000 C CNN
+F 2 "" H 7150 2950 50  0000 C CNN
+F 3 "" H 7150 2950 50  0000 C CNN
+	1    7150 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7600 3050 7400 3050
+Wire Wire Line
+	7600 2300 7600 3050
+Wire Wire Line
+	7400 2950 7600 2950
+Connection ~ 7600 2950
+Wire Wire Line
+	6650 2950 6900 2950
+Wire Wire Line
+	6650 2300 6650 2950
+$Comp
+L +5V #PWR10
+U 1 1 585AF657
+P 7600 2300
+F 0 "#PWR10" H 7600 2150 50  0001 C CNN
+F 1 "+5V" H 7600 2440 50  0000 C CNN
+F 2 "" H 7600 2300 50  0000 C CNN
+F 3 "" H 7600 2300 50  0000 C CNN
+	1    7600 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR9
+U 1 1 585AF672
+P 6650 2300
+F 0 "#PWR9" H 6650 2150 50  0001 C CNN
+F 1 "+3.3V" H 6650 2440 50  0000 C CNN
+F 2 "" H 6650 2300 50  0000 C CNN
+F 3 "" H 6650 2300 50  0000 C CNN
+	1    6650 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 3150 7900 3150
+Wire Wire Line
+	7900 3150 7900 5450
+$Comp
+L GND #PWR11
+U 1 1 585AF6C2
+P 7900 5450
+F 0 "#PWR11" H 7900 5200 50  0001 C CNN
+F 1 "GND" H 7900 5300 50  0000 C CNN
+F 2 "" H 7900 5450 50  0000 C CNN
+F 3 "" H 7900 5450 50  0000 C CNN
+	1    7900 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 3550 7900 3550
+Connection ~ 7900 3550
+Wire Wire Line
+	7400 3850 7900 3850
+Connection ~ 7900 3850
+Wire Wire Line
+	7400 4350 7900 4350
+Connection ~ 7900 4350
+Wire Wire Line
+	7400 4550 7900 4550
+Connection ~ 7900 4550
+Wire Wire Line
+	6900 4850 6400 4850
+Wire Wire Line
+	6400 3350 6400 5450
+$Comp
+L GND #PWR8
+U 1 1 585AF750
+P 6400 5450
+F 0 "#PWR8" H 6400 5200 50  0001 C CNN
+F 1 "GND" H 6400 5300 50  0000 C CNN
+F 2 "" H 6400 5450 50  0000 C CNN
+F 3 "" H 6400 5450 50  0000 C CNN
+	1    6400 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 4150 6400 4150
+Connection ~ 6400 4850
+Wire Wire Line
+	6900 3350 6400 3350
+Connection ~ 6400 4150
+$Comp
+L R R10
+U 1 1 585AFE2B
+P 4200 2450
+F 0 "R10" V 4280 2450 50  0000 C CNN
+F 1 "1000" V 4200 2450 50  0000 C CNN
+F 2 "" V 4130 2450 50  0000 C CNN
+F 3 "" H 4200 2450 50  0000 C CNN
+	1    4200 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 3000 6250 3000
+$Comp
+L PS2502-1-A U2
+U 1 1 585B0007
+P 3800 3700
+F 0 "U2" H 3500 3900 50  0000 L CNN
+F 1 "PS2502-1-A" H 3800 3900 50  0000 L CNN
+F 2 "FW_WARMUP" H 3500 3500 50  0000 L CIN
+F 3 "" H 3800 3700 50  0000 L CNN
+	1    3800 3700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L PS2502-1-A U3
+U 1 1 585B0041
+P 3800 4350
+F 0 "U3" H 3500 4550 50  0000 L CNN
+F 1 "PS2502-1-A" H 3800 4550 50  0000 L CNN
+F 2 "TRIGGER_CUTOUT" H 3500 4150 50  0000 L CIN
+F 3 "" H 3800 4350 50  0000 L CNN
+	1    3800 4350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L R R11
+U 1 1 585B0076
+P 4400 2450
+F 0 "R11" V 4480 2450 50  0000 C CNN
+F 1 "1000" V 4400 2450 50  0000 C CNN
+F 2 "" V 4330 2450 50  0000 C CNN
+F 3 "" H 4400 2450 50  0000 C CNN
+	1    4400 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R12
+U 1 1 585B00A0
+P 4600 2450
+F 0 "R12" V 4680 2450 50  0000 C CNN
+F 1 "1000" V 4600 2450 50  0000 C CNN
+F 2 "" V 4530 2450 50  0000 C CNN
+F 3 "" H 4600 2450 50  0000 C CNN
+	1    4600 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR7
+U 1 1 585B00C9
+P 4200 2000
+F 0 "#PWR7" H 4200 1850 50  0001 C CNN
+F 1 "+3.3V" H 4200 2140 50  0000 C CNN
+F 2 "" H 4200 2000 50  0000 C CNN
+F 3 "" H 4200 2000 50  0000 C CNN
+	1    4200 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 2300 4200 2000
+Wire Wire Line
+	4400 2300 4400 2150
+Wire Wire Line
+	4200 2150 4600 2150
+Connection ~ 4200 2150
+Wire Wire Line
+	4600 2150 4600 2300
+Connection ~ 4400 2150
+Wire Wire Line
+	4200 2800 4200 2600
+Wire Wire Line
+	4200 3600 4400 3600
+Wire Wire Line
+	4400 3600 4400 2600
+Wire Wire Line
+	4200 4250 4600 4250
+Wire Wire Line
+	4600 4250 4600 2600
+Wire Wire Line
+	4200 3800 6150 3800
+Wire Wire Line
+	5600 4450 4200 4450
+$Comp
+L GND #PWR6
+U 1 1 585B02B7
+P 3300 5500
+F 0 "#PWR6" H 3300 5250 50  0001 C CNN
+F 1 "GND" H 3300 5350 50  0000 C CNN
+F 2 "" H 3300 5500 50  0000 C CNN
+F 3 "" H 3300 5500 50  0000 C CNN
+	1    3300 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X07 P2
+U 1 1 585B0373
+P 2450 4950
+F 0 "P2" H 2450 5350 50  0000 C CNN
+F 1 "CONN_01X07" V 2550 4950 50  0000 C CNN
+F 2 "" H 2450 4950 50  0000 C CNN
+F 3 "" H 2450 4950 50  0000 C CNN
+	1    2450 4950
+	-1   0    0    1   
+$EndComp
+$Comp
+L +5V #PWR5
+U 1 1 585B049E
+P 2950 2550
+F 0 "#PWR5" H 2950 2400 50  0001 C CNN
+F 1 "+5V" H 2950 2690 50  0000 C CNN
+F 2 "" H 2950 2550 50  0000 C CNN
+F 3 "" H 2950 2550 50  0000 C CNN
+	1    2950 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2800 3400 2800
+Wire Wire Line
+	2950 3600 3400 3600
+Connection ~ 2950 2800
+Wire Wire Line
+	2950 4250 3400 4250
+Connection ~ 2950 3600
+Wire Wire Line
+	2650 5250 3300 5250
+Wire Wire Line
+	3300 4650 3300 5500
+Wire Wire Line
+	2650 4650 3300 4650
+Connection ~ 3300 5250
+Wire Wire Line
+	2650 5050 2950 5050
+Wire Wire Line
+	2650 4950 4050 4950
+Wire Wire Line
+	2650 5150 3200 5150
+Wire Wire Line
+	3200 5150 3200 4450
+Wire Wire Line
+	3200 4450 3400 4450
+Wire Wire Line
+	2650 4850 3100 4850
+Wire Wire Line
+	3100 4850 3100 3800
+Wire Wire Line
+	3100 3800 3400 3800
+Wire Wire Line
+	2850 4750 2850 3000
+Wire Wire Line
+	2850 3000 3400 3000
+Wire Wire Line
+	2850 4750 2650 4750
+Text Notes 2650 5250 0    39   ~ 0
+BLK
+Text Notes 2650 5150 0    39   ~ 0
+BRN
+Text Notes 2650 5050 0    39   ~ 0
+RED
+Text Notes 2650 4950 0    39   ~ 0
+ORG
+Text Notes 2650 4850 0    39   ~ 0
+YEL
+Text Notes 2650 4750 0    39   ~ 0
+GRN
+Text Notes 2650 4650 0    39   ~ 0
+SILVER
+Wire Wire Line
+	2950 2550 2950 4250
+Wire Wire Line
+	2950 5050 2950 4950
+Connection ~ 2950 4950
+Text Label 3650 4950 0    39   ~ 0
+V_OVERDRIVE
+Text HLabel 1150 1500 0    60   Input ~ 0
+V_MAIN
+Text HLabel 1150 1400 0    60   Input ~ 0
+V_CPU
+Text HLabel 1150 1700 0    60   UnSpc ~ 0
+GND
+Text HLabel 1150 1600 0    60   Output ~ 0
+/PWR_OFF
+$Comp
+L GND #PWR4
+U 1 1 585C07A2
+P 1300 1800
+F 0 "#PWR4" H 1300 1550 50  0001 C CNN
+F 1 "GND" H 1300 1650 50  0000 C CNN
+F 2 "" H 1300 1800 50  0000 C CNN
+F 3 "" H 1300 1800 50  0000 C CNN
+	1    1300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR3
+U 1 1 585C0805
+P 1300 1250
+F 0 "#PWR3" H 1300 1100 50  0001 C CNN
+F 1 "+5V" H 1300 1390 50  0000 C CNN
+F 2 "" H 1300 1250 50  0000 C CNN
+F 3 "" H 1300 1250 50  0000 C CNN
+	1    1300 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 1250 1300 1400
+Wire Wire Line
+	1300 1400 1150 1400
+Wire Wire Line
+	1150 1700 1300 1700
+Wire Wire Line
+	1300 1700 1300 1800
+Wire Wire Line
+	5600 4750 6900 4750
+Text Label 5750 4750 0    60   ~ 0
+GPIO_26
+Wire Wire Line
+	5600 4450 5600 4750
+Wire Wire Line
+	6900 4650 6150 4650
+Wire Wire Line
+	6150 4650 6150 3800
+Wire Wire Line
+	6900 4550 6250 4550
+Wire Wire Line
+	6250 4550 6250 3000
+Text Label 5750 3800 0    60   ~ 0
+GPIO_19
+Text Label 5750 3000 0    60   ~ 0
+GPIO_13
+Wire Wire Line
+	6500 4450 6900 4450
+Text Label 6500 4450 0    60   ~ 0
+GPIO_6
+Wire Wire Line
+	1150 1600 2650 1600
+Text Label 1950 1600 0    60   ~ 0
+GPIO_6
+$EndSCHEMATC

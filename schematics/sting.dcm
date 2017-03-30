@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PS2502-1-A
+D DIP4, DC Darlington Optocoupler, Vce 300V, CTR 1000%
+K NPN Darlington DC Optocoupler
+F http://www.semicon.toshiba.co.jp/docs/datasheet/en/Opto/TLP627_TLP627-4_en_datasheet_071001.pdf
+$ENDCMP
+#
+#End Doc Library
