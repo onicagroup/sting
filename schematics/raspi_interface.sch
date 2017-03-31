@@ -328,7 +328,7 @@ Wire Wire Line
 Wire Wire Line
 	2950 5050 2950 4950
 Connection ~ 2950 4950
-Text Label 3650 4950 0    39   ~ 0
+Text Label 4450 4950 0    39   ~ 0
 V_OVERDRIVE
 Text HLabel 1150 1500 0    60   Input ~ 0
 V_MAIN
@@ -394,4 +394,17 @@ Wire Wire Line
 	1150 1600 2650 1600
 Text Label 1950 1600 0    60   ~ 0
 GPIO_6
+$Comp
+L D_Schottky_Small D10
+U 1 1 58DE76F4
+P 4150 4950
+F 0 "D10" H 4100 5030 50  0000 L CNN
+F 1 "Schottky" H 3870 4870 50  0000 L CNN
+F 2 "" V 4150 4950 50  0000 C CNN
+F 3 "" V 4150 4950 50  0000 C CNN
+	1    4150 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 4950 4450 4950
 $EndSCHEMATC
