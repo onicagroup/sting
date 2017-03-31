@@ -183,7 +183,7 @@ Python for rapid and easy development.  [Virtualenv](https://virtualenv.pypa.io/
 
 #### STING
 
-[STING](https://bitbucket.org/nbdev/sturdy-sting) (Sturdy Tactical Integrated Nerf Gun) is the code that ties everything together.
+[STING](https://github.com/sturdycloud/sting) (Sturdy Tactical Integrated Nerf Gun) is the code that ties everything together.
 
 There are two main components: The `sting` Python library (low level hardware control of the gun), and the `gui` script, which does the heavy lifting of using OpenCV, Rekognition, and managing the guns GUI.
 
