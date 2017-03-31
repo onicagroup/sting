@@ -39,6 +39,7 @@
         - [The Sting Low Level Library](#the-sting-low-level-library)
         - [The Sting GUI](#the-sting-gui)
       - [Software Miscellaneous](#software-miscellaneous)
+  - [Copyright](#copyright)
 
 ## The Gun
 
@@ -232,3 +233,21 @@ The GUI is the most complicated part of the STING system.  Here's a basic breakd
 
 
 * To allow the script to restart the gun, sudo chown root.root gui.py && sudo chmod 4755 gui.py
+
+# Copyright
+Sturdy Tactical Integrated Nerf Gun  
+Copyright 2017, Sturdy Networks, LLC
+
+This program and all accomplying documentation and schematics is free
+software; you can redistribute it and/or modify it under the terms of
+the GNU General Public License as published by the Free Software Foundation;
+either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
