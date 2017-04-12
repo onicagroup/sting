@@ -34,7 +34,7 @@
       - [Operating system](#operating-system)
       - [Python 2.7](#python-27)
       - [OpenCV + imutils](#opencv--imutils)
-      - [Rekogntion from Amazon Web Services](#rekogntion-from-amazon-web-services)
+      - [Rekognition from Amazon Web Services](#rekogntion-from-amazon-web-services)
       - [STING](#sting)
         - [The Sting Low Level Library](#the-sting-low-level-library)
         - [The Sting GUI](#the-sting-gui)
@@ -52,7 +52,7 @@ There were several design decisions that made this project a bit harder:
 
 * Gun should still operate normally when not being controlled
 * Gun could be powered externally even when the batteries are installed
-* Gun could be "overpowered" externally to shoot faster and farther.
+* Gun could be "overpowered" externally to shoot faster and farther
 
 ### Nerf Gun Internals
 
@@ -177,9 +177,9 @@ Python for rapid and easy development.  [Virtualenv](https://virtualenv.pypa.io/
 
 [imutils](https://github.com/jrosebr1/imutils) made it really easy to grab frames from the Pi camera.
 
-#### Rekogntion from Amazon Web Services
+#### Rekognition from Amazon Web Services
 
-[Rekogntion](https://aws.amazon.com/rekognition/) is used to recognize and persist faces; it forms the core of the "Identify Friend or Foe" portion of the software.
+[Rekognition](https://aws.amazon.com/rekognition/) is used to recognize and persist faces; it forms the core of the "Identify Friend or Foe" portion of the software.
 
 #### STING
 
@@ -238,7 +238,7 @@ The GUI is the most complicated part of the STING system.  Here's a basic breakd
 Sturdy Tactical Integrated Nerf Gun  
 Copyright 2017, Sturdy Networks, LLC
 
-This program and all accomplying documentation and schematics is free
+This program and all accompanying documentation and schematics is free
 software; you can redistribute it and/or modify it under the terms of
 the GNU General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later version.
