@@ -1,10 +1,9 @@
-#!/home/pi/.virtualenvs/cv/bin/python 
+#!/home/pi/.virtualenvs/cv/bin/python
 
 # Local libraries
 from sting import Sting
 from menus import generateMenus
 from menu import GoBack
-
 
 # Libraries
 
@@ -22,18 +21,16 @@ from botocore.client import Config
 
 import traceback
 import sys
+import os
 
 import threading
 import Queue
-
 
 def imgToJpg(img):
     retVal, jpgBuf = cv2.imencode('.jpeg', img)
     if retVal:
         return bytes(jpgBuf.tostring())
     return None
-
-
 
 try:
     from imutils.video.pivideostream import PiVideoStream as VideoStream
@@ -43,9 +40,11 @@ except ImportError:
 
 class Toast(object):
     fontScale = .75
-    def __init__(self, text, timeout = 3, fontScale = .75):
+    def __init__(self, text, timeout = 3, fontScale = .75, color = (0xff, 0xff, 0xff), priority = False):
         self.text = text
+        self.color = color
         self.fontScale = fontScale
+        self.priority = priority
         if timeout:
             self.expireTime = time.time() + timeout
         else:
@@ -86,7 +85,7 @@ class FaceRekognizer(object):
         startTime = time.time()
         try:
             res = self.rekClient.search_faces_by_image(
-                    CollectionId = self.collectionId, 
+                    CollectionId = self.collectionId,
                     Image = {'Bytes': imgToJpg(img)})
 
             if res['FaceMatches']:
@@ -144,7 +143,7 @@ class StingGui(object):
         self._oldMenu               = None
 
         self.toast                  = None
-        self._oldToast              = None 
+        self._oldToast              = None
 
         self._oldButton             = None
 
@@ -213,7 +212,10 @@ class StingGui(object):
         if self.toast:
             self.toast = self.toast.checkTimeout()
 
-        if not self.toast:
+        if self.isEnemy and (not self.toast or not self.toast.priority):
+            self.toast = Toast('TARGET ACQUIRED', color = self.red, timeout = 1, priority = True)
+            self.screenShotFrames = 5
+        elif not self.toast:
             self.toast = Toast('Weapon Hot' if self.fireEnable else 'Weapon Safe', 0)
 
         menuChanged  = self.menu != self._oldMenu
@@ -242,28 +244,25 @@ class StingGui(object):
                 size, dummy = cv2.getTextSize(self.menu.title, fontFace, fontScale, thickness)
                 w,h = size
                 x = 0
-                y = h 
+                y = h
                 cv2.putText(img, self.menu.title, (x,y), fontFace, fontScale ,(255,255,255), thickness)
 
             if self.toast:
                 fontScale = getattr(self.toast, 'fontScale', 1.0)
-                size, dummy = cv2.getTextSize(text, fontFace, fontScale, thickness)
+                size, dummy = cv2.getTextSize(self.toast.text, fontFace, fontScale, thickness)
                 x = 0
                 y = int(self.screenHeight - size[1] * 1.1)
-                cv2.putText(img, self.toast.text, (x,y), fontFace, fontScale ,(255,255,255), thickness)
+                cv2.putText(img, self.toast.text, (x,y), fontFace, fontScale, self.toast.color , thickness)
             self._menuImage = img
 
         return cv2.add(frame, self._menuImage)
-
-
-
 
     def getFrame(self):
         frame = self.videoStream.read()
         frame = cv2.flip(frame, -1) # rotate 180
         return frame
 
-    def getFaces(self, frame): 
+    def getFaces(self, frame):
         ''' Returns an array of tuples which are (faceImage, (x1, y1, x2, y2)) '''
 
         ret = []
@@ -280,7 +279,7 @@ class StingGui(object):
             hw,hh = [int(q * 2) / 2 for q in (w,h) ]
             x1,x2 = cx - hw, cx + hw
             y1,y2 = cy - hh, cy + hh
-            
+
             imgH, imgW = frame.shape[0:2]
 
             x1,y1 = [ max(q, 0) for q in (x1,y1) ]
@@ -293,10 +292,25 @@ class StingGui(object):
         return ret
 
     def drawBoxesAroundFaces(self, frame, faces):
+
         color = self.red if self.isEnemy else self.blue
-        for face, box in faces:
-            cv2.rectangle(frame, box[0:2], box[2:4], color, 2)
-            
+        if self.isEnemy:
+            color = self.red
+            for face, box in faces:
+                x1, y1, x2, y2 = box
+                w = x2 - x1
+                h = y2 - y1
+                centerX, centerY = center = (x1 + w/2, y1 + h/2)
+                radius = int(max([ q * .4 for q in (w,h) ]))
+                cv2.circle(frame, center, radius, color, 2)
+                cv2.line(frame, (x1, centerY), (x2, centerY), color, 2)
+                cv2.line(frame, (centerX, y1), (centerX, y2), color, 2)
+
+        else:
+            color = self.blue
+            for face, box in faces:
+                cv2.rectangle(frame, box[0:2], box[2:4], color, 2)
+
     def mainLoop(self):
         if not self.ready:
             raise RuntimeError('Class not in ready state use "with" statement')
@@ -311,6 +325,7 @@ class StingGui(object):
         faceRek                 = None
 
         loopStart               = time.time()
+
 
         with Sting() as sting:
             while self.running:
@@ -347,7 +362,7 @@ class StingGui(object):
                     if self.addWhiteListFlag:
                         jpg = imgToJpg(faceImage)
                         args = {'CollectionId': self.collectionId, 'Image': {'Bytes': jpg} }
-                        try: 
+                        try:
                             ret = self.rekClient.index_faces(**args)
                             self.toast = Toast('Friend added', 3)
                             self.menu = self.menu.select(GoBack())
@@ -365,12 +380,11 @@ class StingGui(object):
                         faceId = None
                         faceFound = False
                         isEnemy = True
-
-
                 # Coast for a bit if we don't find a faces for a few frames
                 elif faceFound and time.time() - lastFaceFoundTime > self.faceTimeout:
-                        faceFound           = False
-                        faceId              = None
+                    self.isEnemy        = False
+                    faceFound           = False
+                    faceId              = None
 
                 if faceRek and faceRek.finished:
                     faceId = faceRek.getResult()
@@ -417,8 +431,10 @@ group = parser.add_mutually_exclusive_group()
 group.add_argument('--logo', action = 'store_true', default = True)
 group.add_argument('--no-logo', action = 'store_false', dest = 'logo' )
 args = parser.parse_args()
-    
+
 shutdown = True
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 with StingGui(showLogo = args.logo) as stingGui:
     try:
@@ -433,7 +449,3 @@ if shutdown:
     subprocess.check_call(('shutdown', 'now'))
 
 sys.exit()
-
-
-
-
