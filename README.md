@@ -11,7 +11,7 @@
   Automated Shooting System Based on Logical Assertions of Status, Threat, and Enemy Recognition
 ~~~~
 
-[![ASSBLASTER Video](http://img.youtube.com/vi/9oyQpj-aGO0/0.jpg)](https://sturdy.cloud/sting "STING Promotional Video")
+[![ASSBLASTER Video](http://img.youtube.com/vi/9oyQpj-aGO0/0.jpg)](https://sturdy.cloud/sting "ASSBLASTER Promotional Video")
 
 [https://sturdy.cloud/sting]([https://sturdy.cloud/sting])
 
@@ -37,9 +37,9 @@
       - [Python 2.7](#python-27)
       - [OpenCV + imutils](#opencv--imutils)
       - [Rekognition from Amazon Web Services](#rekogntion-from-amazon-web-services)
-      - [ASSBLASTER](#sting)
-        - [The ASSBLASTER Low Level Library](#the-sting-low-level-library)
-        - [The ASSBLASTER GUI](#the-sting-gui)
+      - [ASSBLASTER](#assblaster)
+        - [The ASSBLASTER Low Level Library](#the-assblaster-low-level-library)
+        - [The ASSBLASTER GUI](#the-assblaster-gui)
       - [Software Miscellaneous](#software-miscellaneous)
   - [Copyright](#copyright)
 
