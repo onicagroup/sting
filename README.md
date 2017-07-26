@@ -1,15 +1,17 @@
 ~~~~
-  _____ _______ _____   _   _   _____   
- / ____|__   __|_   _| | \ | | / ____|  
-| (___    | |    | |   |  \| || |  __   
- \___ \   | |    | |   | . ` || | |_ |  
- ____) |  | | _ _| |_ _| |\  || |__| |_
-|_____(_) |_|(_)_____(_)_| \_(_)_____(_)
+  ___   _____ _____  ______ _       ___   _____ _____ ___________
+ / _ \ /  ___/  ___| | ___ \ |     / _ \ /  ___|_   _|  ___| ___ \
+/ /_\ \\ `--.\ `--.  | |_/ / |    / /_\ \\ `--.  | | | |__ | |_/ /
+|  _  | `--. \`--. \ | ___ \ |    |  _  | `--. \ | | |  __||    /
+| | | |/\__/ /\__/ / | |_/ / |____| | | |/\__/ / | | | |___| |\ \
+\_| |_/\____/\____/  \____/\_____/\_| |_/\____/  \_/ \____/\_| \_|
 
-  Sturdy Tactical Integrated Nerf Gun
+
+
+  Automated Shooting System Based on Logical Assertions of Status, Threat, and Enemy Recognition
 ~~~~
 
-[![STING Video](http://img.youtube.com/vi/9oyQpj-aGO0/0.jpg)](https://sturdy.cloud/sting "STING Promotional Video")
+[![ASSBLASTER Video](http://img.youtube.com/vi/9oyQpj-aGO0/0.jpg)](https://sturdy.cloud/sting "STING Promotional Video")
 
 [https://sturdy.cloud/sting]([https://sturdy.cloud/sting])
 
@@ -35,9 +37,9 @@
       - [Python 2.7](#python-27)
       - [OpenCV + imutils](#opencv--imutils)
       - [Rekognition from Amazon Web Services](#rekogntion-from-amazon-web-services)
-      - [STING](#sting)
-        - [The Sting Low Level Library](#the-sting-low-level-library)
-        - [The Sting GUI](#the-sting-gui)
+      - [ASSBLASTER](#sting)
+        - [The ASSBLASTER Low Level Library](#the-sting-low-level-library)
+        - [The ASSBLASTER GUI](#the-sting-gui)
       - [Software Miscellaneous](#software-miscellaneous)
   - [Copyright](#copyright)
 
@@ -181,15 +183,15 @@ Python for rapid and easy development.  [Virtualenv](https://virtualenv.pypa.io/
 
 [Rekognition](https://aws.amazon.com/rekognition/) is used to recognize and persist faces; it forms the core of the "Identify Friend or Foe" portion of the software.
 
-#### STING
+#### ASSBLASTER
 
-[STING](https://github.com/sturdycloud/sting) (Sturdy Tactical Integrated Nerf Gun) is the code that ties everything together.
+[ASSBLASTER](https://github.com/sturdycloud/sting) (Sturdy Tactical Integrated Nerf Gun) is the code that ties everything together.
 
-There are two main components: The `sting` Python library (low level hardware control of the gun), and the `gui` script, which does the heavy lifting of using OpenCV, Rekognition, and managing the guns GUI.
+There are two main components: The `ASSBLASTER` Python library (low level hardware control of the gun), and the `gui` script, which does the heavy lifting of using OpenCV, Rekognition, and managing the guns GUI.
 
-##### The Sting Low Level Library
+##### The ASSBLASTER Low Level Library
 
-The Sting library consists of a single `Sting` class.  It's purpose is to manage the Pi's physical interface to the Nerf gun via the GPIO port.  This class implements a context manager via the `with` Python keyword.  This allows the library to do proper setup and teardown of the GPIO.  If used outside of the `with` statement, a RuntimeError will be generated.  
+The ASSBLASTER library consists of a single `ASSBLASTER` class.  It's purpose is to manage the Pi's physical interface to the Nerf gun via the GPIO port.  This class implements a context manager via the `with` Python keyword.  This allows the library to do proper setup and teardown of the GPIO.  If used outside of the `with` statement, a RuntimeError will be generated.  
 
 This library is designed to be simple to use.  An instance exposes 3 main boolean properties: `cutout`, `flywheel`, and `trigger`, which represent the cutout, flywheel and trigger relays (described above), respectively.  Setting any of these properties to `True` will energize that particular relay, while setting them to `False` de-energizes that relay.
 
@@ -203,9 +205,9 @@ The simplest use case is:
         time.sleep(5)
         sting.trigger = False
 
-##### The Sting GUI
+##### The ASSBLASTER GUI
 
-The GUI is the most complicated part of the STING system.  Here's a basic breakdown of it's operation, in highly simplified pseudocode:
+The GUI is the most complicated part of the ASSBLASTER system.  Here's a basic breakdown of it's operation, in highly simplified pseudocode:
 
     while running:
       getVideoFrame()
