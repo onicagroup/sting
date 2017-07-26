@@ -185,7 +185,7 @@ Python for rapid and easy development.  [Virtualenv](https://virtualenv.pypa.io/
 
 #### ASSBLASTER
 
-[ASSBLASTER](https://github.com/sturdycloud/sting) (Sturdy Tactical Integrated Nerf Gun) is the code that ties everything together.
+[ASSBLASTER](https://github.com/sturdycloud/sting) (Automated Shooting System Based on Logical Assertions of Status, Threat, and Enemy Recognition) is the code that ties everything together.
 
 There are two main components: The `ASSBLASTER` Python library (low level hardware control of the gun), and the `gui` script, which does the heavy lifting of using OpenCV, Rekognition, and managing the guns GUI.
 
@@ -237,7 +237,8 @@ The GUI is the most complicated part of the ASSBLASTER system.  Here's a basic b
 * To allow the script to restart the gun, sudo chown root.root gui.py && sudo chmod 4755 gui.py
 
 # Copyright
-Sturdy Tactical Integrated Nerf Gun  
+Automated Shooting System Based on Logical Assertions of Status, Threat, and Enemy Recognition
+
 Copyright 2017, Sturdy Networks, LLC
 
 This program and all accompanying documentation and schematics is free
